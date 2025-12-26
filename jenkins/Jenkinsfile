@@ -1,0 +1,30 @@
+pipeline {
+  agent any
+
+  stages {
+    stage('Clone Code') {
+      steps {
+        git 'https://github.com/YOUR_GITHUB_USERNAME/devops-ci-cd-k8s-project.git'
+      }
+    }
+
+    stage('Build Docker Image') {
+      steps {
+        sh 'docker build -t YOUR_DOCKERHUB_USERNAME/webapp:latest app'
+      }
+    }
+
+    stage('Push Docker Image') {
+      steps {
+        sh 'docker push YOUR_DOCKERHUB_USERNAME/webapp:latest'
+      }
+    }
+
+    stage('Deploy to Kubernetes') {
+      steps {
+        sh 'kubectl apply -f k8s'
+      }
+    }
+  }
+}
+
