@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: web
-        image: YOUR_DOCKERHUB_USERNAME/webapp:latest
+        image: devrahul16/webapp:latest
         ports:
         - containerPort: 80
 
