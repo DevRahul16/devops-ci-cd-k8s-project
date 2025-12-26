@@ -6,15 +6,16 @@ spec:
   replicas: 2
   selector:
     matchLabels:
-      app: web
+      app: web-app
   template:
     metadata:
       labels:
-        app: web
+        app: web-app
     spec:
       containers:
-      - name: web
-        image: devrahul16/webapp:latest
-        ports:
-        - containerPort: 80
+        - name: web
+          image: devrahul16/webapp:latest
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 80
 
