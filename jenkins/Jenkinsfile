@@ -4,19 +4,19 @@ pipeline {
   stages {
     stage('Clone Code') {
       steps {
-        git 'https://github.com/YOUR_GITHUB_USERNAME/devops-ci-cd-k8s-project.git'
+        git 'https://github.com/devrahul16/devops-ci-cd-k8s-project.git'
       }
     }
 
     stage('Build Docker Image') {
       steps {
-        sh 'docker build -t YOUR_DOCKERHUB_USERNAME/webapp:latest app'
+        sh 'docker build -t devrahul16/webapp:latest app'
       }
     }
 
     stage('Push Docker Image') {
       steps {
-        sh 'docker push YOUR_DOCKERHUB_USERNAME/webapp:latest'
+        sh 'docker push devrahul16/webapp:latest'
       }
     }
 
